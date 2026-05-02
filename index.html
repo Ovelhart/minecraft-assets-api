@@ -4,19 +4,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>minecraft assets api</title>
 </head>
+<script>
+    // sistema de copiar o codigo do code .codigo
+    document.addEventListener('DOMContentLoaded', function() {
+        const codeElements = document.querySelectorAll('code');
+        codeElements.forEach(code => {
+            code.addEventListener('click', function() {
+                const text = this.textContent;
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('Código copiado: ' + text);
+                }).catch(err => {
+                    console.error('Erro ao copiar: ', err);
+                });
+            });
+        });
+    });
+
+</script>
 <body>
     <h1>minecraft assets api</h1>
-    <p>this is a simple api for minecraft assets, it is not a full api, but it is a simple api for minecraft assets.</p>
-    <h2>endpoints</h2> 
+    <p>Esta é uma API simples para recursos do Minecraft. Não é uma API completa, mas sim uma API simples para recursos do Minecraft.</p>
+    <p>Esta API contém 1.141 texturas de blocos e 740 texturas de itens, todas com os mesmos nomes do Minecraft.</p>
+    <h2>Como usar</h2> 
     <ul>
-        <li><a href="/minecraft-assets-api/img/block/stone.png">/minecraft-assets-api/img/block/stone.png</a> - returns the image for a specific block</li>
+        <li><a href="/minecraft-assets-api/img/block/stone.png">/minecraft-assets-api/img/block/stone.png</a> - Retorna a imagem para um bloco específico.</li>
+        <li><a href="/minecraft-assets-api/img/itens/wood_pickaxe.png">/minecraft-assets-api/img/itens/wood_pickaxe.png</a> - Retorna a imagem para um item específico.</li>
     </ul>
+    <div class="blocks">
+        <img src="https://ovelhart.github.io/minecraft-assets-api/img/block/stone.png" alt="Stone Block">
+        <img src="https://ovelhart.github.io/minecraft-assets-api/img/block/dirt.png" alt="Dirt Block">
+        <img src="https://ovelhart.github.io/minecraft-assets-api/img/block/sand.png" alt="Sand Block">
+        <img src="https://ovelhart.github.io/minecraft-assets-api/img/block/grass_side_carried.png" alt="Grass Block">
+    </div>
+    <div class="itens">
+        <img src="https://ovelhart.github.io/minecraft-assets-api/img/itens/wood_pickaxe.png" alt="Wood Item">
+        <img src="https://ovelhart.github.io/minecraft-assets-api/img/itens/totem.png" alt="totem Item">
+        <img src="https://ovelhart.github.io/minecraft-assets-api/img/itens/turtle_egg.png" alt="Turtle Egg Item">
+        <img src="https://ovelhart.github.io/minecraft-assets-api/img/itens/trident.png" alt="Trident Item">
+    </div>
+    <p>Para deixar a imagem com uma boa qualidade, utilize a propriedade <p><code class="codigo">image-rendering: pixelated;</code></p>no CSS.</p>
 </body>
 </html>
 <style>
     body {
         font-family: Arial, sans-serif;
         margin: 20px;
+    }
+    code {
+        background-color: #f4f4f4;
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-family: 'Courier New', Courier, monospace;
+        border: 1px solid #666;
+    }
+    img {
+        width: 10vw;
+        image-rendering: pixelated;
+        height: auto;
+    }
+    .blocks {
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+    .itens {
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
     }
     h1 {
         color: #333;
